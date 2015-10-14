@@ -1,6 +1,11 @@
-/* FIXME: Implement! */
+#include "smallest_char.h"
 
-int main()
-{
-    return 0;
+char smallest_character( char str[], char c ) {
+	const char *strptr = str;
+	while( *strptr != '\0' ) {
+		if ( *strptr > c )
+			return *strptr;
+		++strptr;
+	}
+	return str[0];
 }
