@@ -11,7 +11,7 @@ recursive: recursive.c
 	$(CC) $(CFLAGS_common) -o $@ $@.c main.c
 
 run: iterative
-	./iterative
+	./iterative "abcdefghijklmnopqrstuvwxyz" "e"
 
 clean:
 	$(RM) $(EXEC) *.o perf.*
