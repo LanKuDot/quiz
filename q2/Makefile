@@ -11,7 +11,14 @@ recursive: recursive.c
 	$(CC) $(CFLAGS_common) -o $@ $@.c main.c
 
 run: iterative
-	./iterative "abcdefghijklmnopqrstuvwxyz" "e"
+	@./iterative "bcdgjklmoqrsuvxzABDELMQRSTUXZ" "J"
+	@./iterative "abcdiprtvwBFGHKLNOQUVWXZ" "i"
+	@./iterative "acefghjlmoqsxyBCEFGIKNRUV" ""
+	@./iterative "" "a"
+	@./iterative "" ""
+
+unit_test_iterative: iterative
+	bash unit_test.sh ./iterative
 
 clean:
 	$(RM) $(EXEC) *.o perf.*
