@@ -1,6 +1,6 @@
-/* FIXME: Implement! */
+#include "smallest_char.h"
 
-int main()
+char smallest_character( char str[], char c )
 {
-    return 0;
+    return c;
 }
