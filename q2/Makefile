@@ -26,5 +26,8 @@ unit_test: $(EXEC)
 	@bash unit_test.sh ./iterative
 	@bash unit_test.sh ./iterative_2
 
+plot: $(EXEC_TIME_OUTFILE)
+	gnuplot -persist plotTime.gp
+
 clean:
 	$(RM) $(EXEC) *.o perf.* generate_test_str
