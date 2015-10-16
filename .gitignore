@@ -5,6 +5,7 @@
 *.list
 *.swp
 *.bak
+*.txt
 iterative
 iterative_2
 recursive
