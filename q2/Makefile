@@ -2,6 +2,7 @@ CC ?= gcc
 CFLAGS_common ?= -O0 -Wall -std=gnu99
 
 EXEC = iterative iterative_2 recursive
+EXEC_TIME_OUTFILE = execution_time.txt
 all: $(EXEC)
 
 iterative: iterative.c
@@ -16,9 +17,10 @@ recursive: recursive.c
 generate_test_str: generate_test_str.c
 	$(CC) $(CFLAGS_common) -o $@ $@.c
 
-run: iterative
-	@echo "echo 1 > /proc/sys/vm/drop_caches" | sudo sh
-	@perf stat -e cpu-cycles,instructions,cache-references,cache-misses ./iterative "ABDELMQRSTUXZbcdgjklmoqrsuvxz" "J"
+run: CFLAGS_common += -DMEASURE_TIME
+run: $(EXEC) generate_test_str
+	@$(RM) $(EXEC_TIME_OUTFILE)
+	@bash time_measure.sh $(EXEC_TIME_OUTFILE)
 
 unit_test: $(EXEC)
 	@bash unit_test.sh ./iterative
