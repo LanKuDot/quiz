@@ -6,5 +6,7 @@
 *.swp
 *.bak
 iterative
+iterative_2
 recursive
 main
+generate_test_str
