@@ -12,7 +12,7 @@ char smallest_character( char str[], char c )
 	if ( right < 0 )
 		return '\0';
 
-	while ( left != right ) {
+	while ( left < right ) {
 		center = ( left + right ) >> 1;
 		if ( str[center] > c )
 			right = --center;
