@@ -13,6 +13,9 @@ iterative_2: iterative_2.c
 recursive: recursive.c
 	$(CC) $(CFLAGS_common) -o $@ $@.c main.c
 
+generate_test_str: generate_test_str.c
+	$(CC) $(CFLAGS_common) -o $@ $@.c
+
 run: iterative
 	@echo "echo 1 > /proc/sys/vm/drop_caches" | sudo sh
 	@perf stat -e cpu-cycles,instructions,cache-references,cache-misses ./iterative "ABDELMQRSTUXZbcdgjklmoqrsuvxz" "J"
@@ -22,4 +25,4 @@ unit_test: $(EXEC)
 	@bash unit_test.sh ./iterative_2
 
 clean:
-	$(RM) $(EXEC) *.o perf.*
+	$(RM) $(EXEC) *.o perf.* generate_test_str
