@@ -4,7 +4,7 @@
 
 int main( int argc, char *argv[] )
 {
-	char charBank[53] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char charBank[53] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char str[53+1];    // 1 for null character.
 	int len = 0;
 

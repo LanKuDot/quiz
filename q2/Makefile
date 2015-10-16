@@ -12,7 +12,7 @@ recursive: recursive.c
 
 run: iterative
 	@echo "echo 1 > /proc/sys/vm/drop_caches" | sudo sh
-	@perf stat -e cpu-cycles,instructions,cache-references,cache-misses ./iterative "bcdgjklmoqrsuvxzABDELMQRSTUXZ" "J"
+	@perf stat -e cpu-cycles,instructions,cache-references,cache-misses ./iterative "ABDELMQRSTUXZbcdgjklmoqrsuvxz" "J"
 
 unit_test_iterative: iterative
 	bash unit_test.sh ./iterative
