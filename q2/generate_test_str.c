@@ -17,7 +17,7 @@ int main( int argc, char *argv[] )
 	}
 	str[len] = '\0';
 
-	printf( "%s %c\n", str, charBank[ rand() % 52 ] );
+	printf( "%s\n", str );
 
 	return 0;
 }
