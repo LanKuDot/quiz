@@ -14,6 +14,9 @@ recursive: recursive.c
 run: $(EXEC)
 	bash time_measure.sh $(EXEC_OUTPUT_FILE)
 
+plot: $(EXEC_OUTPUT_FILE)
+	gnuplot -persist plotTime.gp
+
 unit_test: $(EXEC)
 	@./iterative 10 10
 	@./recursive 10 10
