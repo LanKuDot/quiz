@@ -22,6 +22,9 @@ run: $(EXEC) generate_test_str
 	@$(RM) $(EXEC_TIME_OUTFILE)
 	@bash time_measure.sh $(EXEC_TIME_OUTFILE)
 
+cache-misses: $(EXEC) generate_test_str
+	bash cache_misses.sh
+
 unit_test: $(EXEC)
 	@bash unit_test.sh ./iterative
 	@bash unit_test.sh ./iterative_2
