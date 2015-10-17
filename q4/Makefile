@@ -2,6 +2,7 @@ CC ?= gcc
 CFLAGS_common ?= -O0 -Wall -std=gnu99
 
 EXEC = iterative recursive
+EXEC_OUTPUT_FILE = execution_time.txt
 all: $(EXEC)
 
 iterative: iterative.c
@@ -10,5 +11,12 @@ iterative: iterative.c
 recursive: recursive.c
 	$(CC) $(CFLAGS_common) -o $@ $@.c main.c
 
+run: $(EXEC)
+	bash time_measure.sh $(EXEC_OUTPUT_FILE)
+
+unit_test: $(EXEC)
+	@./iterative 10 10
+	@./recursive 10 10
+
 clean:
-	$(RM) $(EXEC) *.o perf.*
+	$(RM) $(EXEC) $(EXEC_OUTPUT_FILE) *.o perf.*
