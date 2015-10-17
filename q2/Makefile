@@ -33,4 +33,4 @@ plot: $(EXEC_TIME_OUTFILE)
 	gnuplot -persist plotTime.gp
 
 clean:
-	$(RM) $(EXEC) *.o perf.* generate_test_str
+	$(RM) $(EXEC) $(EXEC_TIME_OUTFILE) *.o perf.* generate_test_str
