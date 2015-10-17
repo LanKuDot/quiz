@@ -28,6 +28,7 @@ cache-misses: $(EXEC) generate_test_str
 unit_test: $(EXEC)
 	@bash unit_test.sh ./iterative
 	@bash unit_test.sh ./iterative_2
+	@bash unit_test.sh ./recursive
 
 plot: $(EXEC_TIME_OUTFILE)
 	gnuplot -persist plotTime.gp
