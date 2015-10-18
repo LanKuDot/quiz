@@ -1,5 +1,5 @@
 CC ?= gcc
-CFLAGS_common ?= -O0 -Wall -std=gnu99
+CFLAGS_common ?= -march=native -Ofast -Wall -std=gnu99
 
 EXEC = iterative iterative_2 recursive
 EXEC_TIME_OUTFILE = execution_time.txt
