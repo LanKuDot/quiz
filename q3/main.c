@@ -35,6 +35,7 @@ void build_binaryTree( TreeNode *root, FILE *fp )
 		buffer[ bytes_read ] = '\0';
 		ch_ptr = buffer;
 
+		/* format: L(L(LR)R)R(L(L)R) */
 		while( *ch_ptr != '\0' ) {
 			switch( *ch_ptr++ ) {
 			case '(':
