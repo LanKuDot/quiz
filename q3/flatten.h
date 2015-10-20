@@ -1,3 +1,6 @@
+#ifndef __FLATTEN
+#define __FLATTEN
+
 typedef struct Node {
 	struct Node *parent;
 	struct Node *left;
@@ -6,3 +9,5 @@ typedef struct Node {
 } TreeNode;
 
 void flatten( TreeNode *root );
+
+#endif
