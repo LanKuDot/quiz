@@ -7,6 +7,7 @@
 
 void build_binaryTree( TreeNode *root, FILE *fp );
 void free_binaryTree( TreeNode *node );
+void DFS( TreeNode *root );
 
 int main()
 {
@@ -21,6 +22,8 @@ int main()
 
 	build_binaryTree( root, fp );
 	fclose( fp );
+
+	DFS( root );
 
 	free_binaryTree( root );
 }
@@ -74,4 +77,25 @@ void free_binaryTree( TreeNode *node )
 	if( node->right != NULL )
 		free_binaryTree( node->right );
 	free( node );
+}
+
+void DFS( TreeNode *root )
+{
+	TreeNode *stack[16], *pop;
+	int stack_top = -1;
+
+	printf( "DFS:" );
+
+	stack[++stack_top] = root;
+	while( stack_top != -1 ) {
+		pop = stack[stack_top--];
+		printf( " %d", pop->value );
+
+		if ( pop->right != NULL )
+			stack[++stack_top] = pop->right;
+		if ( pop->left != NULL )
+			stack[++stack_top] = pop->left;
+	}
+
+	printf( "\n" );
 }
