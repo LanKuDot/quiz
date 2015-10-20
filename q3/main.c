@@ -24,6 +24,8 @@ int main()
 	fclose( fp );
 
 	DFS( root );
+	flatten( root );
+	DFS( root );
 
 	free_binaryTree( root );
 }
