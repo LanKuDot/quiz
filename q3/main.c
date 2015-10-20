@@ -6,7 +6,7 @@
 #define BUF_LEN 32
 
 void build_binaryTree( TreeNode *root, FILE *fp );
-void free_binaryTree( TreeNode *root );
+void free_binaryTree( TreeNode *node );
 
 int main()
 {
