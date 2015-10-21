@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "flatten.h"
+#include "../diff_in_second.h"
 
 #define BUF_LEN 32
 
@@ -11,6 +13,7 @@ void DFS( TreeNode *root );
 
 int main()
 {
+	struct timespec start, end;
 	/* Read the preorder from the file. */
 	FILE *fp = fopen( "build_tree.txt", "r" );
 
@@ -24,8 +27,12 @@ int main()
 	fclose( fp );
 
 	DFS( root );
+	clock_gettime( CLOCK_REALTIME, &start );
 	flatten( root );
+	clock_gettime( CLOCK_REALTIME, &end );
 	DFS( root );
+
+	printf( "Ecesution time: %.9lf sec.\n", diff_in_second( start, end ) );
 
 	free_binaryTree( root );
 }
