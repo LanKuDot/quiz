@@ -8,7 +8,7 @@ iterative: iterative.c
 	$(CC) $(CFLAGS_common) -o $@ $@.c main.c
 
 recursive: recursive.c
-	$(CC) $(CFLAGS_common) -o $@ $@.c
+	$(CC) $(CFLAGS_common) -o $@ $@.c main.c
 
 clean:
 	$(RM) $(EXEC) *.o perf.*
