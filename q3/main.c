@@ -10,6 +10,7 @@
 void build_binaryTree( TreeNode *root, FILE *fp );
 void free_binaryTree( TreeNode *node );
 void DFS( TreeNode *root );
+void printLevel( TreeNode *node, int level );
 
 int main()
 {
@@ -26,13 +27,19 @@ int main()
 	build_binaryTree( root, fp );
 	fclose( fp );
 
-	DFS( root );
+	printf( "Before flatten:" );
+	printLevel( root, 0 );
+	printf( "\n" );
+
 	clock_gettime( CLOCK_REALTIME, &start );
 	flatten( root );
 	clock_gettime( CLOCK_REALTIME, &end );
-	DFS( root );
 
-	printf( "Ecesution time: %.9lf sec.\n", diff_in_second( start, end ) );
+	printf( "After flatten:" );
+	printLevel( root, 0 );
+	printf( "\n" );
+
+	printf( "Execution time: %.9lf sec.\n", diff_in_second( start, end ) );
 
 	free_binaryTree( root );
 }
@@ -107,4 +114,14 @@ void DFS( TreeNode *root )
 	}
 
 	printf( "\n" );
+}
+
+void printLevel( TreeNode *node, int level )
+{
+	printf( " %d[%d]", node->value, level );
+
+	if ( node->left != NULL )
+		printLevel( node->left, level + 1 );
+	if ( node->right != NULL )
+		printLevel( node->right, level + 1 );
 }
