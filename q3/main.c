@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -12,11 +13,13 @@ void free_binaryTree( TreeNode *node );
 void DFS( TreeNode *root );
 void printLevel( TreeNode *node, int level );
 
-int main()
+int main( int argc, char *argv[] )
 {
+	assert( (argc == 2) && ("Input format: <program> <construct file>") );
+
 	struct timespec start, end;
 	/* Read the preorder from the file. */
-	FILE *fp = fopen( "build_tree.txt", "r" );
+	FILE *fp = fopen( argv[1], "r" );
 
 	TreeNode *root = (TreeNode *) malloc( sizeof( TreeNode ) );
 	root->parent = NULL;
