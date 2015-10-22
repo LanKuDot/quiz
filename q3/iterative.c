@@ -13,9 +13,11 @@ void flatten( TreeNode *root )
 
 		if ( pop->left != NULL ) {
 			pop->right = pop->left;
+			pop->right->parent = pop;
 			pop->left = NULL;
 		} else if ( stack_top != -1 ) {
 			pop->right = stack[stack_top--];
+			pop->right->parent = pop;
 		}
 
 		pop = pop->right;

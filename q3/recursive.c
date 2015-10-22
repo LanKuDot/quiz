@@ -21,12 +21,14 @@ TreeNode *doFlat( TreeNode *node )
 
 	if ( node->left != NULL ) {
 		node->right = node->left;
+		node->right->parent = node;
 		node->left = NULL;
 		node = doFlat( node->right );
 	}
 
 	if ( carry != NULL ) {
 		node->right = carry;
+		node->right->parent = node;
 		node = doFlat( node->right );
 	}
 
