@@ -1,5 +1,5 @@
 CC ?= gcc
-CFLAGS_common ?= -O0 -Wall -std=gnu99
+CFLAGS_common ?= -O3 -march=native -Wall -std=gnu99
 
 EXEC = iterative recursive
 TIME_MEASURE_FILE = output_
