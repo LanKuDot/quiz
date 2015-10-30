@@ -21,6 +21,10 @@ int main( int argc, char *argv[] )
 	assert( ( n <= length ) && ( m <= n ) && "m <= n <= length" );
 
 	ListNode* root = buildList( length );
+	printf( "Before reverse: " );
+	printList( root );
+	root = reverseBetween( root, m, n );
+	printf( "After reverse: " );
 	printList( root );
 	freeList( root );
 }
