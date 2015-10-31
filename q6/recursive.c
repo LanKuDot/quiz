@@ -30,8 +30,10 @@ ListNode *reverseBetween( ListNode *head, int m, int n )
 	if ( m != 1 ) {
 		subHead = connect->next;
 		connect->next = doReverse( subHead );
-	} else
-		head = doReverse( head );
+	} else {
+		subHead = head;
+		head = doReverse( subHead );
+	}
 
 	subHead->next = tail;
 
