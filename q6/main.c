@@ -1,8 +1,10 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "reverseBetween.h"
+#include "../diff_in_second.h"
 
 ListNode *buildList( int length );
 void printList( ListNode *head );
@@ -20,12 +22,18 @@ int main( int argc, char *argv[] )
 	assert( ( length > 0 ) && ( m > 0 ) && ( n > 0 ) && "length, m, and n are positive." );
 	assert( ( n <= length ) && ( m <= n ) && "m <= n <= length" );
 
+	struct timespec start, end;
 	ListNode* root = buildList( length );
-	printf( "Before reverse: " );
-	printList( root );
+//	printf( "Before reverse: " );
+//	printList( root );
+	clock_gettime( CLOCK_REALTIME, &start );
 	root = reverseBetween( root, m, n );
-	printf( "After reverse: " );
-	printList( root );
+	clock_gettime( CLOCK_REALTIME, &end );
+//	printf( "After reverse: " );
+//	printList( root );
+
+	printf( "Execution time: %.9lf sec.\n", diff_in_second( start, end ) );
+
 	freeList( root );
 }
 
